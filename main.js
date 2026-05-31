@@ -1,160 +1,144 @@
-/* ===== CURSOR ===== */
+/* ======= CURSOR ======= */
 const cursor = document.getElementById('cursor');
-const follower = document.getElementById('cursorFollower');
-let mx = 0, my = 0, fx = 0, fy = 0;
+const ring   = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
 
 document.addEventListener('mousemove', e => {
   mx = e.clientX; my = e.clientY;
   cursor.style.left = mx + 'px';
-  cursor.style.top = my + 'px';
+  cursor.style.top  = my + 'px';
 });
 
-(function animFollower() {
-  fx += (mx - fx) * 0.12;
-  fy += (my - fy) * 0.12;
-  follower.style.left = fx + 'px';
-  follower.style.top = fy + 'px';
-  requestAnimationFrame(animFollower);
+(function trackRing() {
+  rx += (mx - rx) * 0.11;
+  ry += (my - ry) * 0.11;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(trackRing);
 })();
 
-document.querySelectorAll('a, button, .skill-card, .ach-card, .cta-card').forEach(el => {
+document.querySelectorAll('a,button,.sk-card,.ach-card,.ct-card,.tl-card').forEach(el => {
   el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(2)';
-    cursor.style.background = 'var(--a)';
-    follower.style.opacity = '0';
+    cursor.style.transform = 'translate(-50%,-50%) scale(2.2)';
+    cursor.style.background = 'var(--cy)';
+    ring.style.opacity = '0';
   });
   el.addEventListener('mouseleave', () => {
     cursor.style.transform = 'translate(-50%,-50%) scale(1)';
     cursor.style.background = 'var(--p)';
-    follower.style.opacity = '1';
+    ring.style.opacity = '1';
   });
 });
 
-/* ===== NAVBAR ===== */
-const navbar = document.getElementById('navbar');
+/* ======= NAVBAR ======= */
+const nav  = document.getElementById('nav');
+const menu = document.getElementById('navMenu');
+const ham  = document.getElementById('hamburger');
+
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
-  highlightNav();
+  nav.classList.toggle('up', window.scrollY > 40);
+  updateActiveLink();
 });
 
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+ham.addEventListener('click', () => {
+  menu.classList.toggle('open');
 });
-navLinks.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => navLinks.classList.remove('open'));
-});
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
 
-function highlightNav() {
-  const sections = document.querySelectorAll('section[id]');
-  const scrollY = window.scrollY + 120;
-  sections.forEach(s => {
-    const top = s.offsetTop, h = s.offsetHeight;
-    const id = s.getAttribute('id');
-    const link = document.querySelector(`.nav-link[href="#${id}"]`);
-    if (link) {
-      link.classList.toggle('active', scrollY >= top && scrollY < top + h);
-    }
+function updateActiveLink() {
+  const y = window.scrollY + 130;
+  document.querySelectorAll('section[id]').forEach(s => {
+    const lnk = menu.querySelector(`a[href="#${s.id}"]`);
+    if (!lnk) return;
+    lnk.classList.toggle('active', y >= s.offsetTop && y < s.offsetTop + s.offsetHeight);
   });
 }
 
-/* ===== REVEAL ON SCROLL ===== */
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+/* ======= REVEAL ======= */
+const revObs = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
 
-/* ===== COUNTER ANIMATION ===== */
-function animCount(el) {
-  const target = parseFloat(el.dataset.target);
-  const decimals = parseInt(el.dataset.decimals || 0);
-  const duration = 1800;
-  const start = performance.now();
-  const step = now => {
-    const p = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - p, 3);
-    el.textContent = (ease * target).toFixed(decimals);
+/* ======= COUNTER ======= */
+function animNum(el) {
+  const to  = parseFloat(el.dataset.to);
+  const dec = parseInt(el.dataset.dec || 0);
+  const dur = 1700;
+  const t0  = performance.now();
+  (function step(now) {
+    const p = Math.min((now - t0) / dur, 1);
+    const e = 1 - Math.pow(1 - p, 3);
+    el.textContent = (e * to).toFixed(dec);
     if (p < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
+  })(t0);
 }
 
-const counterObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      animCount(e.target);
-      counterObs.unobserve(e.target);
-    }
+const cntObs = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) { animNum(e.target); cntObs.unobserve(e.target); }
   });
-}, { threshold: 0.5 });
+}, { threshold: 0.6 });
 
-document.querySelectorAll('.stat-num').forEach(el => counterObs.observe(el));
+document.querySelectorAll('.es-num').forEach(el => cntObs.observe(el));
 
-/* ===== PARTICLE CANVAS ===== */
-const canvas = document.getElementById('particleCanvas');
-const ctx = canvas.getContext('2d');
-let particles = [], animId;
+/* ======= PARTICLE CANVAS ======= */
+const cvs = document.getElementById('cvs');
+const ctx = cvs.getContext('2d');
+let pts = [], rid;
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
+function resize() { cvs.width = window.innerWidth; cvs.height = window.innerHeight; }
 
-function makeParticles() {
-  particles = [];
-  const n = Math.min(Math.floor((canvas.width * canvas.height) / 14000), 80);
+function initPts() {
+  pts = [];
+  const n = Math.min(Math.floor(cvs.width * cvs.height / 16000), 70);
   for (let i = 0; i < n; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.4 + 0.3,
-      vx: (Math.random() - 0.5) * 0.28,
-      vy: (Math.random() - 0.5) * 0.28,
-      a: Math.random() * 0.45 + 0.08,
+    pts.push({
+      x: Math.random() * cvs.width,
+      y: Math.random() * cvs.height,
+      r: Math.random() * 1.3 + 0.25,
+      vx: (Math.random() - .5) * .25,
+      vy: (Math.random() - .5) * .25,
+      a: Math.random() * .4 + .08
     });
   }
 }
 
-function drawCanvas() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function draw() {
+  ctx.clearRect(0, 0, cvs.width, cvs.height);
 
-  // lines
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.hypot(dx, dy);
-      if (dist < 100) {
+  /* lines */
+  for (let i = 0; i < pts.length; i++) {
+    for (let j = i + 1; j < pts.length; j++) {
+      const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+      const d = Math.hypot(dx, dy);
+      if (d < 95) {
         ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(108,99,255,${0.07 * (1 - dist / 100)})`;
-        ctx.lineWidth = 0.6;
+        ctx.moveTo(pts[i].x, pts[i].y);
+        ctx.lineTo(pts[j].x, pts[j].y);
+        ctx.strokeStyle = `rgba(139,92,246,${.065 * (1 - d / 95)})`;
+        ctx.lineWidth = .55;
         ctx.stroke();
       }
     }
   }
 
-  // dots
-  particles.forEach(p => {
+  /* dots */
+  pts.forEach(p => {
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(108,99,255,${p.a})`;
+    ctx.fillStyle = `rgba(139,92,246,${p.a})`;
     ctx.fill();
     p.x += p.vx; p.y += p.vy;
-    if (p.x < 0) p.x = canvas.width;
-    if (p.x > canvas.width) p.x = 0;
-    if (p.y < 0) p.y = canvas.height;
-    if (p.y > canvas.height) p.y = 0;
+    if (p.x < 0) p.x = cvs.width;
+    if (p.x > cvs.width) p.x = 0;
+    if (p.y < 0) p.y = cvs.height;
+    if (p.y > cvs.height) p.y = 0;
   });
 
-  animId = requestAnimationFrame(drawCanvas);
+  rid = requestAnimationFrame(draw);
 }
 
-resizeCanvas(); makeParticles(); drawCanvas();
-window.addEventListener('resize', () => {
-  cancelAnimationFrame(animId);
-  resizeCanvas(); makeParticles(); drawCanvas();
-});
+resize(); initPts(); draw();
+window.addEventListener('resize', () => { cancelAnimationFrame(rid); resize(); initPts(); draw(); });
