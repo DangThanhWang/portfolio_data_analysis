@@ -22,6 +22,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#achievements">Achievements</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -288,6 +289,118 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="sec" id="projects">
+    <div class="wrap">
+      <div class="sec-hd reveal">
+        <span class="eyebrow">Portfolio</span>
+        <h2 class="sec-title">Featured Projects</h2>
+        <p class="sec-sub">Real data · Real methods · Real business decisions.</p>
+      </div>
+
+      <div class="proj-list">
+
+        <!-- Project 1: Cookie Cats A/B Testing -->
+        <div class="proj-card reveal">
+          <div class="proj-visual">
+            <img src="assets/ab_dashboard.png" alt="Cookie Cats A/B Testing Dashboard" class="proj-img" />
+            <div class="proj-overlay">
+              <button class="proj-zoom" onclick="openModal()">
+                <i class="fas fa-expand"></i> View Dashboard
+              </button>
+            </div>
+            <div class="proj-type-badge">A/B Testing</div>
+          </div>
+
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-domain"><i class="fas fa-gamepad"></i> Mobile Gaming</span>
+              <span class="proj-size"><i class="fas fa-users"></i> 90,189 users</span>
+            </div>
+
+            <h3 class="proj-title">Cookie Cats — Gate Position A/B Test</h3>
+            <p class="proj-desc">
+              Analyzed a randomized controlled trial on a mobile puzzle game to determine
+              whether moving a timed gate from level 30 to level 40 improves player retention.
+              Applied statistical hypothesis testing and bootstrap simulation to support a
+              product decision backed by data.
+            </p>
+
+            <!-- Key finding callout -->
+            <div class="proj-finding">
+              <div class="pf-icon"><i class="fas fa-lightbulb"></i></div>
+              <div>
+                <p class="pf-label">Key Finding</p>
+                <p class="pf-text">
+                  Gate 30 yields <strong>+4.3% higher 7-day retention</strong> (19.02% vs 18.20%, p = 0.0016).
+                  Recommendation: <strong>Do not ship Gate 40.</strong>
+                </p>
+              </div>
+            </div>
+
+            <!-- Stats row -->
+            <div class="proj-stats">
+              <div class="ps-item">
+                <span class="ps-val">90K+</span>
+                <span class="ps-lbl">Users Analyzed</span>
+              </div>
+              <div class="ps-item">
+                <span class="ps-val">0.0016</span>
+                <span class="ps-lbl">p-value (7-day)</span>
+              </div>
+              <div class="ps-item">
+                <span class="ps-val">5,000</span>
+                <span class="ps-lbl">Bootstrap Iters</span>
+              </div>
+              <div class="ps-item">
+                <span class="ps-val">−4.3%</span>
+                <span class="ps-lbl">Retention Lift</span>
+              </div>
+            </div>
+
+            <!-- Methods & tools -->
+            <div class="proj-footer">
+              <div class="proj-methods">
+                <span class="pm-label">Methods:</span>
+                <span class="pm-tag">Chi-Square Test</span>
+                <span class="pm-tag">Mann-Whitney U</span>
+                <span class="pm-tag">Bootstrap CI</span>
+                <span class="pm-tag">Cohen's h</span>
+              </div>
+              <div class="proj-tools">
+                <span class="pt-tag py">Python</span>
+                <span class="pt-tag pd">Pandas</span>
+                <span class="pt-tag sp">SciPy</span>
+                <span class="pt-tag mp">Matplotlib</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- More coming -->
+      <div class="proj-more reveal">
+        <div class="pm-inner">
+          <i class="fas fa-code-branch"></i>
+          <p>More projects in progress — stay tuned.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Image Modal -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-box" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+      <div class="modal-tabs">
+        <button class="mtab active" onclick="switchTab(this,'ab_dashboard.png')">Dashboard</button>
+        <button class="mtab" onclick="switchTab(this,'ab_funnel.png')">Retention Funnel</button>
+      </div>
+      <img src="assets/ab_dashboard.png" id="modalImg" alt="Project Chart" />
+    </div>
+  </div>
 
   <!-- ===== ACHIEVEMENTS ===== -->
   <section class="sec sec-alt" id="achievements">

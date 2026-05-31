@@ -142,3 +142,22 @@ function draw() {
 
 resize(); initPts(); draw();
 window.addEventListener('resize', () => { cancelAnimationFrame(rid); resize(); initPts(); draw(); });
+
+/* ======= MODAL ======= */
+const overlay = document.getElementById('modalOverlay');
+const modalImg = document.getElementById('modalImg');
+
+function openModal() {
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+function switchTab(btn, img) {
+  document.querySelectorAll('.mtab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  modalImg.src = 'assets/' + img;
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
