@@ -3,274 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dang Quynh Chi | Data Analyst Portfolio</title>
+  <title>Dang Quynh Chi | Data Analyst</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <div class="nav-logo">DQC</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <div class="nav-logo">
+        <span class="logo-text">DQC</span>
+        <span class="logo-dot"></span>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#achievements" class="nav-link">Achievements</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle">
-        <i class="fas fa-bars"></i>
-      </button>
+      <a href="mailto:chidang103204@gmail.com" class="nav-cta">Hire Me</a>
+      <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="about">
-    <div class="hero-bg">
-      <canvas id="particleCanvas"></canvas>
-    </div>
-    <div class="hero-content">
-      <div class="hero-badge">Data Analyst</div>
-      <h1 class="hero-name">Dang Quynh Chi</h1>
-      <p class="hero-tagline">Turning data into decisions — with curiosity, clarity, and code.</p>
-      <div class="hero-contacts">
-        <a href="tel:0867621933" class="contact-chip">
-          <i class="fas fa-phone"></i> 0867 621 933
-        </a>
-        <a href="mailto:chidang103204@gmail.com" class="contact-chip">
-          <i class="fas fa-envelope"></i> chidang103204@gmail.com
-        </a>
-        <span class="contact-chip">
-          <i class="fas fa-location-dot"></i> Hoang Mai, Ha Noi
-        </span>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-pill">
+          <span class="pill-dot"></span>
+          Available for opportunities
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line">Dang</span>
+          <span class="title-line accent-grad">Quynh Chi</span>
+        </h1>
+        <p class="hero-sub">Data Analyst · Business Analytics · NEU</p>
+        <p class="hero-desc">
+          Turning complex datasets into clear, compelling stories.<br/>
+          Passionate about analytics, visualization, and data-driven decisions.
+        </p>
+        <div class="hero-actions">
+          <a href="#experience" class="btn-main">
+            <span>Explore Work</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="mailto:chidang103204@gmail.com" class="btn-ghost">
+            <i class="fas fa-paper-plane"></i>
+            <span>Get In Touch</span>
+          </a>
+        </div>
+        <div class="hero-chips">
+          <a href="tel:0867621933" class="hero-chip">
+            <i class="fas fa-phone"></i> 0867 621 933
+          </a>
+          <a href="mailto:chidang103204@gmail.com" class="hero-chip">
+            <i class="fas fa-envelope"></i> chidang103204@gmail.com
+          </a>
+          <span class="hero-chip">
+            <i class="fas fa-map-marker-alt"></i> Hoang Mai, Ha Noi
+          </span>
+        </div>
       </div>
-      <div class="hero-cta">
-        <a href="#experience" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+
+      <div class="hero-right">
+        <div class="avatar-ring">
+          <div class="avatar-bg"></div>
+          <div class="avatar-circle">
+            <span>DQC</span>
+          </div>
+          <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+          <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
+        </div>
+        <div class="floating-card card-gpa">
+          <i class="fas fa-star"></i>
+          <div>
+            <strong>9.06 / 10</strong>
+            <small>GPA — Top 10%</small>
+          </div>
+        </div>
+        <div class="floating-card card-award">
+          <i class="fas fa-trophy"></i>
+          <div>
+            <strong>RMIT 2023</strong>
+            <small>Top 30 Final</small>
+          </div>
+        </div>
+        <div class="floating-card card-scholar">
+          <i class="fas fa-medal"></i>
+          <div>
+            <strong>5 / 7</strong>
+            <small>Scholarships</small>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="scroll-indicator">
-      <span></span>
-    </div>
+
+    <div class="scroll-line"></div>
   </section>
 
-  <!-- Skills Section -->
+  <!-- ===== SKILLS ===== -->
   <section class="section" id="skills">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Capabilities</span>
+      <div class="section-header reveal">
+        <div class="section-eyebrow">What I bring</div>
         <h2 class="section-title">Key Skills</h2>
+        <p class="section-desc">A blend of technical expertise and interpersonal strengths to drive results.</p>
       </div>
+
       <div class="skills-grid">
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+        <div class="skill-card reveal" style="--d:0s">
+          <div class="sk-glow"></div>
+          <div class="sk-icon" style="--c:#6C63FF"><i class="fas fa-chart-bar"></i></div>
           <h3>Data Visualization</h3>
-          <p>Crafting clear, compelling visual stories from complex datasets using Power BI and modern charting libraries.</p>
-          <div class="skill-tools">
-            <span>Power BI</span><span>Excel</span>
-          </div>
+          <p>Crafting compelling visual narratives from complex data using Power BI and dashboards.</p>
+          <div class="sk-tags"><span>Power BI</span><span>Excel</span><span>Charts</span></div>
         </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-database"></i></div>
+        <div class="skill-card reveal" style="--d:.07s">
+          <div class="sk-glow"></div>
+          <div class="sk-icon" style="--c:#00D4AA"><i class="fas fa-database"></i></div>
           <h3>Data Analytics</h3>
-          <p>Building analytics models and pipelines to extract actionable insights from structured and big data.</p>
-          <div class="skill-tools">
-            <span>SQL</span><span>Python</span>
-          </div>
+          <p>Building analytics models and extracting insights from structured and big-data sources.</p>
+          <div class="sk-tags"><span>SQL</span><span>Python</span><span>Big Data</span></div>
         </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-brain"></i></div>
+        <div class="skill-card reveal" style="--d:.14s">
+          <div class="sk-glow"></div>
+          <div class="sk-icon" style="--c:#FF6B6B"><i class="fas fa-brain"></i></div>
           <h3>Machine Learning</h3>
-          <p>Applying fundamental ML techniques to support predictive analytics and business decision-making.</p>
-          <div class="skill-tools">
-            <span>Scikit-learn</span><span>Statistics</span>
-          </div>
+          <p>Applying fundamental ML to support predictive analytics and business decision-making.</p>
+          <div class="sk-tags"><span>Scikit-learn</span><span>Statistics</span></div>
         </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-file-excel"></i></div>
+        <div class="skill-card reveal" style="--d:.21s">
+          <div class="sk-glow"></div>
+          <div class="sk-icon" style="--c:#FFB800"><i class="fas fa-file-excel"></i></div>
           <h3>Microsoft Excel & SQL</h3>
-          <p>Advanced spreadsheet modelling, pivot tables, and relational database querying for deep data exploration.</p>
-          <div class="skill-tools">
-            <span>Excel</span><span>SQL</span>
-          </div>
+          <p>Advanced spreadsheet modeling, pivot tables, and relational database querying.</p>
+          <div class="sk-tags"><span>Excel</span><span>SQL</span><span>Pivot</span></div>
         </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="skill-card reveal" style="--d:.28s">
+          <div class="sk-glow"></div>
+          <div class="sk-icon" style="--c:#A78BFA"><i class="fas fa-lightbulb"></i></div>
           <h3>Problem Solving</h3>
-          <p>Approaching analytical challenges with structured thinking and a results-oriented mindset.</p>
-          <div class="skill-tools">
-            <span>Critical Thinking</span>
-          </div>
+          <p>Structured, analytical thinking to resolve challenges with clarity and precision.</p>
+          <div class="sk-tags"><span>Critical Thinking</span><span>Analysis</span></div>
         </div>
-
-        <div class="skill-card">
-          <div class="skill-icon"><i class="fas fa-people-group"></i></div>
+        <div class="skill-card reveal" style="--d:.35s">
+          <div class="sk-glow"></div>
+          <div class="sk-icon" style="--c:#34D399"><i class="fas fa-people-group"></i></div>
           <h3>Soft Skills</h3>
-          <p>Strong teamwork, communication, and fluent English — bridging technical findings and business stakeholders.</p>
-          <div class="skill-tools">
-            <span>Teamwork</span><span>English</span>
-          </div>
+          <p>Teamwork, leadership, strong communication, and fluency in English.</p>
+          <div class="sk-tags"><span>English</span><span>Teamwork</span><span>Leadership</span></div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Experience Section -->
-  <section class="section section-dark" id="experience">
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="section section-alt" id="experience">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Career</span>
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Career</div>
         <h2 class="section-title">Work Experience</h2>
       </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-date">2025 – Present</div>
-          <div class="timeline-card">
-            <div class="timeline-header">
+
+      <div class="exp-wrap reveal">
+        <div class="exp-line"></div>
+        <div class="exp-item">
+          <div class="exp-node">
+            <div class="exp-node-ring"></div>
+            <div class="exp-node-dot"></div>
+          </div>
+          <div class="exp-date">2025 – Present</div>
+          <div class="exp-card">
+            <div class="exp-card-top">
               <div>
-                <h3 class="timeline-role">Co-founder · Accounting Executive</h3>
-                <p class="timeline-company">TRA CHA COMPANY LIMITED</p>
+                <h3 class="exp-role">Co-founder · Accounting Executive</h3>
+                <p class="exp-company">
+                  <i class="fas fa-building"></i> TRA CHA COMPANY LIMITED
+                </p>
               </div>
-              <span class="timeline-badge">Current</span>
+              <span class="exp-badge">Active</span>
             </div>
-            <ul class="timeline-list">
+            <ul class="exp-list">
               <li>Maintained bookkeeping and prepared simple financial summaries</li>
-              <li>Managed daily financial records, including revenues, expenses, and cash flow</li>
+              <li>Managed daily financial records — revenues, expenses, and cash flow</li>
               <li>Conducted basic cost analysis to support pricing and operational decisions</li>
             </ul>
+            <div class="exp-skills">
+              <span>Bookkeeping</span><span>Cost Analysis</span><span>Cash Flow</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Education Section -->
+  <!-- ===== EDUCATION ===== -->
   <section class="section" id="education">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Academic Background</span>
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Academic Background</div>
         <h2 class="section-title">Education</h2>
       </div>
-      <div class="edu-grid">
 
-        <div class="edu-card edu-main">
-          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
-          <div class="edu-years">2022 – 2026</div>
-          <h3>National Economics University</h3>
-          <p class="edu-degree">Bachelor of Business Analytics · English Program</p>
-          <div class="edu-stats">
-            <div class="edu-stat">
-              <span class="stat-value">9.06<small>/10</small></span>
-              <span class="stat-label">GPA</span>
+      <div class="edu-layout">
+        <!-- NEU Card -->
+        <div class="edu-main-card reveal">
+          <div class="edu-ribbon">Featured</div>
+          <div class="edu-card-top">
+            <div class="edu-logo-wrap">
+              <div class="edu-logo"><i class="fas fa-graduation-cap"></i></div>
             </div>
-            <div class="edu-stat">
-              <span class="stat-value">3.88<small>/4</small></span>
-              <span class="stat-label">4.0 Scale</span>
-            </div>
-            <div class="edu-stat">
-              <span class="stat-value">5<small>/7</small></span>
-              <span class="stat-label">Scholarships</span>
+            <div>
+              <span class="edu-period">2022 – 2026</span>
+              <h3 class="edu-name">National Economics University</h3>
+              <p class="edu-prog">Bachelor of Business Analytics · English Program</p>
             </div>
           </div>
-          <div class="edu-note">Top 10% of the major · Excellent Student Scholarship</div>
-          <div class="courses">
-            <h4>Relevant Courses</h4>
-            <div class="course-tags">
-              <span class="course-tag perfect">Business Analytics <em>10/10</em></span>
-              <span class="course-tag">Advanced Data Analytics</span>
-              <span class="course-tag">Big Data Analytics</span>
-              <span class="course-tag">Data Analyst Internship</span>
+
+          <div class="edu-stats-row">
+            <div class="edu-stat-box">
+              <div class="stat-num" data-target="9.06" data-decimals="2">0</div>
+              <div class="stat-over">/ 10</div>
+              <div class="stat-lbl">GPA</div>
+            </div>
+            <div class="edu-stat-box highlight">
+              <div class="stat-num" data-target="3.88" data-decimals="2">0</div>
+              <div class="stat-over">/ 4.0</div>
+              <div class="stat-lbl">4-Scale GPA</div>
+            </div>
+            <div class="edu-stat-box">
+              <div class="stat-num" data-target="5" data-decimals="0">0</div>
+              <div class="stat-over">/ 7</div>
+              <div class="stat-lbl">Scholarships</div>
+            </div>
+          </div>
+
+          <div class="edu-honor">
+            <i class="fas fa-award"></i>
+            Top 10% of the major · Excellent Student Scholarship
+          </div>
+
+          <div class="edu-courses">
+            <p class="courses-label">Relevant Courses</p>
+            <div class="course-list">
+              <div class="course-item featured">
+                <span class="course-name">Business Analytics</span>
+                <span class="course-score">10 / 10</span>
+              </div>
+              <div class="course-item">
+                <span class="course-name">Advanced Data Analytics</span>
+              </div>
+              <div class="course-item">
+                <span class="course-name">Big Data Analytics</span>
+              </div>
+              <div class="course-item">
+                <span class="course-name">Data Analyst Internship</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="edu-card">
-          <div class="edu-icon"><i class="fas fa-school"></i></div>
-          <div class="edu-years">2019 – 2022</div>
-          <h3>Thai Binh High School for Gifted Students</h3>
-          <p class="edu-degree">Specialized in Mathematics</p>
-        </div>
+        <!-- High school -->
+        <div class="edu-side reveal">
+          <div class="edu-side-card">
+            <div class="edu-logo sm"><i class="fas fa-school"></i></div>
+            <span class="edu-period">2019 – 2022</span>
+            <h3>Thai Binh High School for Gifted Students</h3>
+            <p class="edu-prog">Specialized in Mathematics</p>
+            <div class="edu-tag">Gifted School</div>
+          </div>
 
+          <div class="quote-card">
+            <i class="fas fa-quote-left"></i>
+            <p>"Data is the new oil — but insight is the refinery."</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Achievements & Activities Section -->
-  <section class="section section-dark" id="achievements">
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section class="section section-alt" id="achievements">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Highlights</span>
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Highlights</div>
         <h2 class="section-title">Achievements & Activities</h2>
       </div>
-      <div class="achieve-grid">
 
-        <div class="achieve-card">
-          <div class="achieve-icon trophy"><i class="fas fa-trophy"></i></div>
-          <div class="achieve-content">
-            <span class="achieve-tag">Competition</span>
-            <h3>RMIT Business Analytics Competition 2023</h3>
-            <p class="achieve-result">Top 30 Final</p>
-            <p>Competed among top university teams in a national business analytics challenge.</p>
+      <div class="ach-grid">
+        <div class="ach-card ach-gold reveal" style="--d:0s">
+          <div class="ach-bg-icon"><i class="fas fa-trophy"></i></div>
+          <div class="ach-header">
+            <div class="ach-icon-wrap gold"><i class="fas fa-trophy"></i></div>
+            <span class="ach-tag">Competition</span>
           </div>
+          <h3>RMIT Business Analytics Competition 2023</h3>
+          <div class="ach-result">
+            <i class="fas fa-star"></i> Top 30 Final
+          </div>
+          <p>Competed among top university teams in a national business analytics challenge, presenting data-driven solutions under real-world constraints.</p>
         </div>
 
-        <div class="achieve-card">
-          <div class="achieve-icon award"><i class="fas fa-medal"></i></div>
-          <div class="achieve-content">
-            <span class="achieve-tag">Course Award</span>
-            <h3>Business Intelligence – NEU</h3>
-            <p class="achieve-result">Best Team Performance</p>
-            <p>Focus on Data Visualization; recognized for outstanding team collaboration and output quality.</p>
+        <div class="ach-card ach-purple reveal" style="--d:.1s">
+          <div class="ach-bg-icon"><i class="fas fa-medal"></i></div>
+          <div class="ach-header">
+            <div class="ach-icon-wrap purple"><i class="fas fa-medal"></i></div>
+            <span class="ach-tag">Course Award</span>
           </div>
+          <h3>Business Intelligence – NEU Course</h3>
+          <div class="ach-result">
+            <i class="fas fa-star"></i> Best Team Performance
+          </div>
+          <p>Recognized for outstanding data visualization deliverables and exceptional team collaboration in a competitive academic setting.</p>
         </div>
 
-        <div class="achieve-card">
-          <div class="achieve-icon leadership"><i class="fas fa-users-gear"></i></div>
-          <div class="achieve-content">
-            <span class="achieve-tag">Leadership</span>
-            <h3>AEP Research Club</h3>
-            <p class="achieve-result">Head of Contents</p>
-            <p>Led a content team to produce academic research materials and organize seminars and workshops on Academic Research for department students.</p>
+        <div class="ach-card ach-teal reveal" style="--d:.2s">
+          <div class="ach-bg-icon"><i class="fas fa-users-gear"></i></div>
+          <div class="ach-header">
+            <div class="ach-icon-wrap teal"><i class="fas fa-users-gear"></i></div>
+            <span class="ach-tag">Leadership</span>
           </div>
+          <h3>AEP Research Club – Head of Contents</h3>
+          <div class="ach-result">
+            <i class="fas fa-star"></i> Content Lead
+          </div>
+          <p>Led a content team to produce academic research materials and organized seminars and workshops on Academic Research for department students.</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- ===== CONTACT ===== -->
   <section class="section" id="contact">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Let's Connect</span>
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Let's Connect</div>
         <h2 class="section-title">Get In Touch</h2>
+        <p class="section-desc">Open to data analyst roles, internships, and exciting collaborations.</p>
       </div>
-      <div class="contact-grid">
-        <a href="tel:0867621933" class="contact-card">
-          <div class="contact-icon"><i class="fas fa-phone"></i></div>
-          <h3>Phone</h3>
-          <p>0867 621 933</p>
+
+      <div class="contact-wrap">
+        <a href="tel:0867621933" class="cta-card reveal" style="--d:0s">
+          <div class="cta-icon" style="--c:#6C63FF"><i class="fas fa-phone"></i></div>
+          <div class="cta-info">
+            <span class="cta-lbl">Phone</span>
+            <span class="cta-val">0867 621 933</span>
+          </div>
+          <i class="fas fa-arrow-up-right cta-arr"></i>
         </a>
-        <a href="mailto:chidang103204@gmail.com" class="contact-card">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <h3>Email</h3>
-          <p>chidang103204@gmail.com</p>
+        <a href="mailto:chidang103204@gmail.com" class="cta-card reveal" style="--d:.1s">
+          <div class="cta-icon" style="--c:#00D4AA"><i class="fas fa-envelope"></i></div>
+          <div class="cta-info">
+            <span class="cta-lbl">Email</span>
+            <span class="cta-val">chidang103204@gmail.com</span>
+          </div>
+          <i class="fas fa-arrow-up-right cta-arr"></i>
         </a>
-        <div class="contact-card">
-          <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
-          <h3>Address</h3>
-          <p>Hoang Mai, Ha Noi</p>
+        <div class="cta-card reveal" style="--d:.2s">
+          <div class="cta-icon" style="--c:#FF6B6B"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="cta-info">
+            <span class="cta-lbl">Location</span>
+            <span class="cta-val">Hoang Mai, Ha Noi</span>
+          </div>
         </div>
       </div>
     </div>
@@ -278,8 +386,12 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <p>© 2025 Dang Quynh Chi · Built with passion for data</p>
+    <div class="container footer-inner">
+      <div class="footer-logo">DQC<span class="logo-dot"></span></div>
+      <p>© 2025 Dang Quynh Chi · Crafted with passion for data</p>
+      <div class="footer-back">
+        <a href="#hero" class="back-top"><i class="fas fa-arrow-up"></i></a>
+      </div>
     </div>
   </footer>
 
